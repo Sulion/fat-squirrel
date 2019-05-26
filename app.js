@@ -1,3 +1,5 @@
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -17,10 +19,22 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/client', express.static(path.join(__dirname, 'build')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.get('/client', (req, res) => {
+    res.render(
+        'index', {
+            title: 'Fat Squirrel',
+            props: {
+                name: 'Thenochtitlan'
+            }
+        }
+    );
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
