@@ -4,11 +4,11 @@ const MongoClient = require('mongodb').MongoClient;
 const url = process.env.MONGODB_URI;
 const dbName = 'fat_squirrel';
 var db;
-MongoClient.connect(url, function(err, client) {
+MongoClient.connect(url, function(err, dbase) {
     if (err === null) {
-       db = client.db(dbName);
+       db = dbase.db();
     } else {
-        console.log('Panic!!!');
+        console.log('No connection to mongo!');
     }
 });
 router.get('/', function(req, res, next) {
