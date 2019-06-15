@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "webpack": "./node_modules/.bin/webpack -w",
+    "build": "./node_modules/.bin/webpack",
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
