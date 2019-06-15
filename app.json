@@ -1,0 +1,22 @@
+{
+  "addons": [
+    "mongolab"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "description": "Nutrition facts about dishes in St. Petersburg restaurants",
+  "env": {
+    "MONGODB_URI": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "name": "fat-squirrel",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
