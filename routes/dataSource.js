@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://172.17.0.2:27017';
+const url = process.env.MONGODB_URI;
 const dbName = 'fat_squirrel';
 var db;
 MongoClient.connect(url, function(err, client) {
