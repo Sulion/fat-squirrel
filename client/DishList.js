@@ -1,3 +1,4 @@
+/* @jsx React.DOM */
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Table} from 'react-bootstrap';
@@ -17,14 +18,14 @@ class DishList  extends React.Component {
         const query = nextProps.data;
         if (query === null || query === undefined || query === '')
             return;
-        axios.get(`/data/search?query=${encodeURIComponent(query)}`)
+/*        axios.get(`/data/search?query=${encodeURIComponent(query)}`)
              .then(res => {
                  this.setState({
                      data: res.data,
                      query: query
                  });
              })
-             .catch(err => console.error(err));
+             .catch(err => console.error(err));*/
     }
 
     renderData(data) {
