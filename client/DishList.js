@@ -1,4 +1,4 @@
-/* @jsx React.DOM */
+/* @jsx  */
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Table} from 'react-bootstrap';
@@ -42,8 +42,8 @@ class DishList  extends React.Component {
     }
 
     render() {
-        return (
-            <Table striped bordered hover>
+      return (
+            <Table striped hover className="dish-list">
                 <thead>
                     <tr>
                         <th>Блюдо</th>

@@ -1,43 +1,57 @@
-/* @jsx React.DOM */
+/* @jsx */
 import React, {Component} from 'react';
-import {Form, FormControl, Button} from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Col from 'react-bootstrap/Col';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 class SearchBar extends React.Component {
-    constructor() {
-        super();
-        this.searchQuery = React.createRef();
-    }
+  constructor() {
+    super();
+    this.searchQuery = React.createRef();
 
-    state = {
-        query: ""
+    this.state = {
+      query: ""
     };
+  }
 
-    onQueryChange = event => this.setState({
-        query: event.target.value
-    });
+  onQueryChange = event => this.setState({
+    query: event.target.value
+  });
 
-    onSubmit = event => {
-        event.preventDefault();
-        event.stopPropagation();
-        this.props.onSubmitQuery(this.state.query);
-    };
+  onSubmit = event => {
+    event.preventDefault();
+    event.stopPropagation();
+    this.props.onSubmitQuery(this.state.query);
+  };
 
-    render() {
-        return (
-            <div>
-                <Form inline onSubmit={this.onSubmit}>
-                    <FormControl
-                        type="text"
-                        placeholder="Место и блюдо"
-                        className="mr-sm-2"
-                        onChange={this.onQueryChange}
-                        _ref={this.searchQuery}
-                    />
-                    <Button variant="outline-success" onClick={this.onSubmit} >Search</Button>
-                </Form>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <Form inline onSubmit={this.onSubmit}>
+        <Form.Row className="w-100 main-search-form">
+          <Col md={{ span: 8, offset: 2}}>
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text>
+                  <FontAwesomeIcon className="search-icon" icon={ faSearch } />
+                </InputGroup.Text>
+              </InputGroup.Prepend>
+              <Form.Control
+                type="text"
+                placeholder="Место и блюдо"
+                size="lg"
+                onChange={this.onQueryChange}
+                _ref={this.searchQuery}
+              />
+            </InputGroup>
+          </Col>
+        </Form.Row>
+      </Form>
+    );
+  }
 }
 
 export default SearchBar;

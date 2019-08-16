@@ -23,11 +23,46 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-search-form {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  width: 100vw!important;
+  border: none;
+}
+input.form-control {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0 !important;
+  outline: none;
+  border-color: #DDDDDD;
+}
+.input-group-text {
+  border: 0;
+  background-color: #FFFFFF;
+  border-radius: 0 !important;
+}
+
+.search-icon {
+  font-size: 20pt;
+  font-weight: 1000;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0 !important;
+  border-color: #777777;
+}
+.table thead th {
+  border-top: none;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #F7F7F7;
+}
+
+.dish-list {
+  margin-top: 8vh;
 }
