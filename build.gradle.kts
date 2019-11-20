@@ -2,7 +2,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.41"
+    kotlin("jvm") version "1.3.50"
     id("com.github.johnrengelman.shadow") version "5.1.0"
     application
 }
@@ -40,25 +40,22 @@ dependencies {
     testImplementation("io.rest-assured:rest-assured:4.0.0")
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "12"
-}
-//tasks.withType<Test> {
-//    useJUnitPlatform {}
-//}
-
 tasks {
+    withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "12"
+    }
+    withType<Test> {
+        useJUnitPlatform {}
+    }
+
     named<ShadowJar>("shadowJar") {
-        archiveBaseName.set( "${project.name}")
+        archiveBaseName.set("${project.name}")
         mergeServiceFiles()
         manifest {
             attributes(mapOf("Main-Class" to "io.ktor.server.netty.EngineMain"))
         }
     }
-}
 
-
-tasks {
     "build" {
         dependsOn(shadowJar)
     }
