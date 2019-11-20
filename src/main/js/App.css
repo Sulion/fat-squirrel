@@ -1,22 +1,80 @@
+html *
+{
+  color: #000 !important;
+  font-family: Montserrat !important;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.ribbon {
+  height: 10vh;
+  max-height: 50px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menu-text {
+  font-size: 12pt;
+  color: #000000;
+}
+
+main-container {
+  padding-top: 27vh;
+}
+
+.navbar-menu {
+  height: 5vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;  /* Centering y-axis */
+}
+.nav-item {
+  margin-left: .5vw;
 }
 
-.App-link {
-  color: #09d3ac;
+.main-search-form {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  width: 100vw!important;
+  border: none;
+}
+input.form-control {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0 !important;
+  outline: none;
+  border-color: #DDDDDD;
+}
+.input-group-text {
+  border: 0;
+  background-color: #FFFFFF;
+  border-radius: 0 !important;
+}
+
+.search-icon {
+  font-size: 20pt;
+  font-weight: 900;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0 !important;
+  border-color: #777777;
+}
+.table thead th {
+  border-top: none;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #F7F7F7;
+}
+
+.dish-list {
+  margin-top: 8vh;
 }
