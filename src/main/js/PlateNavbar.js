@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Nav, Navbar }  from 'react-bootstrap';
 import './App.css';
+import logo from './logo.svg'
 
 class PlateNavbar extends Component {
     render() {
@@ -8,7 +9,7 @@ class PlateNavbar extends Component {
         return (
             <Navbar bg="white" expand="lg" collapseOnSelect sticky= {'top'}>
                 <Navbar.Brand>
-                    P
+                    <img src={logo} className="App-logo-img" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" className="mr-auto">

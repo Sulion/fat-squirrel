@@ -48,9 +48,9 @@ class DishList  extends React.Component {
                 <thead>
                 <tr>
                     <th>Блюдо</th>
-                    <th>Белки</th>
-                    <th>Жиры</th>
-                    <th>Углеводы</th>
+                    <th>Б</th>
+                    <th>Ж</th>
+                    <th>У</th>
                 </tr>
                 </thead>
                 <tbody>

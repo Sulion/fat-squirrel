@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Col from 'react-bootstrap/Col';
+import zoom from './search.svg'
 
 class SearchBar extends React.Component {
     constructor() {
@@ -32,7 +33,7 @@ class SearchBar extends React.Component {
                         <InputGroup>
                             <InputGroup.Prepend>
                                 <InputGroup.Text>
-                                    †††
+                                    <img src={zoom} className="magnifying-glass"/>
                                 </InputGroup.Text>
                             </InputGroup.Prepend>
                             <Form.Control

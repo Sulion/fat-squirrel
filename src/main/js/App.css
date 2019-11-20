@@ -18,11 +18,16 @@ html *
 
 .menu-text {
   font-size: 12pt;
+  font-weight: bold;
   color: #000000;
 }
 
-main-container {
-  padding-top: 27vh;
+.main-container {
+  padding-top: 10vh;
+}
+
+.magnifying-glass {
+  height: 4vh;
 }
 
 .navbar-menu {
@@ -69,6 +74,13 @@ input.form-control {
 }
 .table thead th {
   border-top: none;
+  font-weight: 1000;
+}
+
+.summary {
+  margin-top: 10vh;
+  font-size: 20pt;
+  font-weight: 1000;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
