@@ -9,7 +9,7 @@ class DishList  extends React.Component {
         return map(data, dish => {
             return (
                 <tr>
-                    <td>{dish.dish}</td>
+                    <td>{dish.name}</td>
                     <td>{dish.proteins}</td>
                     <td>{dish.fats}</td>
                     <td>{dish.carbs}</td>
