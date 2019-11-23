@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Col from 'react-bootstrap/Col';
 import zoom from './search.svg'
 
 class SearchBar extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.searchQuery = React.createRef();
 
         this.state = {
@@ -33,7 +32,7 @@ class SearchBar extends React.Component {
                         <InputGroup>
                             <InputGroup.Prepend>
                                 <InputGroup.Text>
-                                    <img src={zoom} className="magnifying-glass"/>
+                                    <img src={zoom} className="magnifying-glass" alt="zoom"/>
                                 </InputGroup.Text>
                             </InputGroup.Prepend>
                             <Form.Control
