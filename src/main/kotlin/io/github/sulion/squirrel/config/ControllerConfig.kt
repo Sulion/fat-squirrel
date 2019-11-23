@@ -43,7 +43,8 @@ class ControllerConfig {
                             SET_PRIVATE_FIELDS_CONVENTION
                         )
                     )
-                    .automatic(true).build()
+                    .automatic(true)
+                    .build()
             )
         )
     }
