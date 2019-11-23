@@ -1,0 +1,1 @@
+web: java -jar build/libs/fat-squirrel-0.0.1-SNAPSHOT-all.jar
