@@ -8,6 +8,8 @@ plugins {
     application
     val kotlinVersion = "1.3.60"
     kotlin("jvm") version kotlinVersion
+    id("com.github.node-gradle.node") version "2.2.0"
+    id("com.github.johnrengelman.shadow") version "5.1.0"
 }
 
 group = "io.github.sulion"
@@ -15,6 +17,12 @@ version = "0.0.1-SNAPSHOT"
 
 application {
     mainClassName = "io.ktor.server.netty.EngineMain"
+}
+
+node {
+    version = "12.13.0"
+    npmVersion = "6.12.0"
+    download = true
 }
 
 dependencies {
@@ -45,11 +53,12 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Jar> {
+    dependsOn("npm_run_build")
     manifest {
         attributes(
-                mapOf(
-                        "Main-Class" to application.mainClassName
-                )
+            mapOf(
+                "Main-Class" to application.mainClassName
+            )
         )
     }
 }
