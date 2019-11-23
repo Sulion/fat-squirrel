@@ -8,6 +8,7 @@ plugins {
     application
     val kotlinVersion = "1.3.60"
     kotlin("jvm") version kotlinVersion
+    kotlin("plugin.noarg") version "1.3.60"
     id("com.github.node-gradle.node") version "2.2.0"
     id("com.github.johnrengelman.shadow") version "5.1.0"
 }
@@ -17,6 +18,10 @@ version = "0.0.1-SNAPSHOT"
 
 application {
     mainClassName = "io.ktor.server.netty.EngineMain"
+}
+
+noArg {
+    annotation("io.github.sulion.squirrel.model.DefaultConstructor")
 }
 
 node {
@@ -44,6 +49,7 @@ dependencies {
     compile("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
     compile("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
     compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
+    compile("org.mongodb:mongodb-driver-sync:3.11.2")
     compile("org.codehaus.groovy:groovy-all:2.5.8")
     testCompile("org.spockframework:spock-core:1.2-groovy-2.5")
 }

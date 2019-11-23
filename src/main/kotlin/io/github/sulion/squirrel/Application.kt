@@ -1,7 +1,7 @@
 package io.github.sulion.squirrel
 
 import com.fasterxml.jackson.databind.module.SimpleModule
-import io.github.sulion.squirrel.controller.SearchController
+import io.github.sulion.squirrel.config.ControllerConfig
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
@@ -16,9 +16,11 @@ import io.ktor.jackson.jackson
 import io.ktor.response.respond
 import io.ktor.routing.get
 import io.ktor.routing.routing
+import io.ktor.util.KtorExperimentalAPI
 
+@KtorExperimentalAPI
 fun Application.main() {
-    val searchController = SearchController()
+    val controllerConfig = ControllerConfig();
     install(DefaultHeaders)
     install(CallLogging)
     install(AutoHeadResponse)
@@ -40,7 +42,7 @@ fun Application.main() {
         }
         get("/data/search") {
             call.respond(
-                searchController.search(call.request.queryParameters["query"] ?: "")
+                controllerConfig.searchController.search(call.request.queryParameters["query"] ?: "")
             )
         }
     }
