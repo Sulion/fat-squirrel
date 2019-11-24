@@ -22,14 +22,17 @@ class ControllerConfig {
     val config = HoconApplicationConfig(ConfigFactory.load())
     val searchController = initSearchController(config)
 
-    private fun initSearchController(config: HoconApplicationConfig): SearchController =
-        SearchController(
+    private fun initSearchController(config: HoconApplicationConfig): SearchController {
+        val connectionString = ConnectionString(config.property(MONGODB_URI_PROPERTY).getString())
+        return SearchController(
             MongoClientSettings.builder()
-                .applyConnectionString(ConnectionString(config.property(MONGODB_URI_PROPERTY).getString()))
+                .applyConnectionString(connectionString)
                 .codecRegistry(codecRegistry())
                 .build()
                 .let { MongoClients.create(it) }
+                .getDatabase(connectionString.database!!)
         )
+    }
 
     private fun codecRegistry(): CodecRegistry {
         return fromRegistries(

@@ -1,15 +1,15 @@
 package io.github.sulion.squirrel.controller
 
-import com.mongodb.client.MongoClient
+import com.mongodb.client.MongoDatabase
 import com.mongodb.client.model.Filters.text
 import io.github.sulion.squirrel.model.Dish
 import org.bson.BsonDocument
 import org.bson.BsonString
 
 class SearchController(
-    val mongoClient: MongoClient
+    val database: MongoDatabase
 ) {
-    val dishes = mongoClient.getDatabase("squirrel").getCollection(Dish::class.simpleName!!, Dish::class.java)
+    val dishes = database.getCollection(Dish::class.simpleName!!, Dish::class.java)
 
     init {
         val indexes = BsonDocument()
