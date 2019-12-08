@@ -2,6 +2,7 @@ sudo: false
 language: minimal
 install: true
 script:
+  - ./gradlew build --no-daemon
   - docker build -t fat-squirrel .
   - docker tag fat-squirrel "$DOCKER_USERNAME/fat-squirrel:$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER"
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

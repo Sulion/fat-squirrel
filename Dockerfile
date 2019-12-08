@@ -1,16 +1,11 @@
-FROM gradle:5.4-jdk11-slim AS build
-COPY --chown=gradle:gradle . /home/gradle/src
-WORKDIR /home/gradle/src
-RUN gradle build --no-daemon
-
 FROM openjdk:11-jre-slim
 RUN mkdir -p /opt/app
-COPY --from=build /home/gradle/src/build/libs/fat-squirrel-0.0.1-SNAPSHOT-all.jar /opt/app/fat-squirrel-0.0.1-SNAPSHOT-all.jar
+COPY ./build/libs/fat-squirrel-0.0.1-SNAPSHOT-all.jar /opt/app/fat-squirrel-0.0.1-SNAPSHOT-all.jar
 
-RUN useradd --create-home --user-group tavernik && \
-    chown -R tavernik /opt
+RUN useradd --create-home --user-group plater && \
+    chown -R plater /opt
 
-USER tavernik
+USER plater
 WORKDIR /opt/app
 
 EXPOSE 8080
