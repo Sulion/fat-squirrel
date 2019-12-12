@@ -16,6 +16,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: ssh travis@45.153.184.42 sudo /opt/wordpress/redeploy.sh $TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
+  script: ssh -i /tmp/deploy_rsa travis@45.153.184.42 sudo /opt/wordpress/redeploy.sh $TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
   on:
     branch: master
