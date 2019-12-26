@@ -1,14 +1,21 @@
-html *
-{
+html * {
   color: #000 !important;
   font-family: Montserrat !important;
 }
+
 .App {
-  text-align: center;
+
+}
+
+.App-logo-img {
+  height: 3vh;
+  margin-left: 6vh;
 }
 
 .ribbon {
   height: 10vh;
+  margin-top: 4vh;
+  padding-right: 6vh;
   max-height: 50px;
   width: 100vw;
   position: fixed;
@@ -43,7 +50,8 @@ html *
 .main-search-form {
   padding-left: 5vw;
   padding-right: 5vw;
-  width: 100vw!important;
+  padding-top: 9vh;
+  width: 100vw !important;
   border: none;
 }
 input.form-control {
@@ -74,13 +82,13 @@ input.form-control {
 }
 .table thead th {
   border-top: none;
-  font-weight: 1000;
+  font-weight: 900;
 }
 
 .summary {
   margin-top: 10vh;
   font-size: 20pt;
-  font-weight: 1000;
+  font-weight: 900;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
@@ -88,5 +96,5 @@ input.form-control {
 }
 
 .dish-list {
-  margin-top: 8vh;
+  margin-top: 12vh;
 }

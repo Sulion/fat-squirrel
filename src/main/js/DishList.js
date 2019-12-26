@@ -10,6 +10,7 @@ class DishList  extends React.Component {
             return (
                 <tr>
                     <td>{dish.name}</td>
+                    <td>{dish.energy}</td>
                     <td>{dish.proteins}</td>
                     <td>{dish.fats}</td>
                     <td>{dish.carbs}</td>
@@ -20,13 +21,14 @@ class DishList  extends React.Component {
 
     render() {
         return (
-            <Table striped hover className="dish-list">
+            <Table hover className="dish-list">
                 <thead>
                 <tr>
                     <th>Блюдо</th>
-                    <th>Б</th>
-                    <th>Ж</th>
-                    <th>У</th>
+                    <th>Калории</th>
+                    <th>Белки</th>
+                    <th>Жиры</th>
+                    <th>Углеводы</th>
                 </tr>
                 </thead>
                 <tbody>
