@@ -27,8 +27,8 @@ class SearchBar extends React.Component {
     render() {
         return (
             <Form inline onSubmit={this.onSubmit}>
-                <Form.Row className="w-100 main-search-form">
-                    <Col md={{span: 8, offset: 2}}>
+                <Form.Row className="main-search-form">
+                    <Col>
                         <InputGroup>
                             <InputGroup.Prepend>
                                 <InputGroup.Text>

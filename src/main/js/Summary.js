@@ -22,7 +22,8 @@ function Summary(data) {
                 </Row>
                 <Row>
                     <Col className="col-7">&nbsp;</Col>
-                    <Col className="col-sm-5">
+                    {totalProteins + totalFats + totalCarbs > 0 &&
+                    < Col className="col-sm-5">
                         <svg width="35vw">
                             <rect x="0" y="0" height="1vh" width={eps * totalProteins} fill="#F67100"/>
                             <rect x={eps * totalProteins} y="0" height="1vh" width={eps * totalFats}
@@ -31,6 +32,7 @@ function Summary(data) {
                                   width={eps * totalCarbs} fill="#00B775"/>
                         </svg>
                     </Col>
+                    }
                 </Row>
             </Container>
         </React.Fragment>

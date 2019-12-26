@@ -8,7 +8,7 @@ class DishList  extends React.Component {
     renderData(data) {
         return map(data, dish => {
             return (
-                <tr>
+                <tr key={dish.id.timestamp + dish.id.counter * 97}>
                     <td>{dish.name}</td>
                     <td>{dish.energy}</td>
                     <td>{dish.proteins}</td>

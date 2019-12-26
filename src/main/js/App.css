@@ -31,6 +31,7 @@ html * {
 
 .main-container {
   padding-top: 10vh;
+  width: 50vw;
 }
 
 .magnifying-glass {
@@ -48,8 +49,6 @@ html * {
 }
 
 .main-search-form {
-  padding-left: 5vw;
-  padding-right: 5vw;
   padding-top: 9vh;
   width: 100vw !important;
   border: none;

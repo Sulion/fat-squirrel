@@ -27,12 +27,12 @@ function App() {
         <React.Fragment>
             <PlateNavbar/>
             <Container className="main-container">
-                <Row>
+                <Row className="justify-content-center">
                     <Col>
                         <SearchBar onSubmitQuery={data => setData(data)}/>
                     </Col>
                 </Row>
-                <Row>
+                <Row className="justify-content-center">
                     <Col>
                         <DishList data={dishes}/>
                     </Col>
