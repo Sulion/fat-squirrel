@@ -31,7 +31,6 @@ html * {
 
 .main-container {
   padding-top: 10vh;
-  width: 50vw;
 }
 
 .magnifying-glass {
@@ -86,8 +85,22 @@ input.form-control {
 
 .summary {
   margin-top: 10vh;
-  font-size: 20pt;
+  font-size: 12pt;
   font-weight: 900;
+}
+
+.summary-text {
+  display: flex;
+  align-items: flex-start;
+}
+
+.summary-text-caption {
+  width: 60%;
+}
+
+.summary-value {
+  width: 14%;
+  padding: .75rem;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {

@@ -1,8 +1,7 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import sumBy from "lodash/sumBy"
+import Table from "react-bootstrap/Table";
 
 
 function Summary(data) {
@@ -14,26 +13,39 @@ function Summary(data) {
     return (
         <React.Fragment>
             <Container className="summary">
-                <Row>
-                    <Col className="col-7">В тарелке</Col>
-                    <Col className="col-sm-2">{sumBy(data.data, 'proteins')}</Col>
-                    <Col className="col-sm-2">{sumBy(data.data, 'fats')}</Col>
-                    <Col className="col-sm-1">{sumBy(data.data, 'carbs')}</Col>
-                </Row>
-                <Row>
-                    <Col className="col-7">&nbsp;</Col>
+                <Table className="table-fixed">
+                    <tr>
+                        <th width="58%">В тарелке</th>
+                        <th width="14%">{sumBy(data.data, 'proteins')}</th>
+                        <th width="14%">{sumBy(data.data, 'fats')}</th>
+                        <th width="14%">{sumBy(data.data, 'carbs')}</th>
+                    </tr>
+
                     {totalProteins + totalFats + totalCarbs > 0 &&
-                    < Col className="col-sm-5">
-                        <svg width="35vw">
-                            <rect x="0" y="0" height="1vh" width={eps * totalProteins} fill="#F67100"/>
-                            <rect x={eps * totalProteins} y="0" height="1vh" width={eps * totalFats}
-                                  fill="#3D43F7"/>
-                            <rect x={eps * (totalProteins + totalFats)} y="0" height="1vh"
-                                  width={eps * totalCarbs} fill="#00B775"/>
-                        </svg>
-                    </Col>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <svg width="100%" preserveAspectRatio="none">
+                                <rect x="0" y="0" height="1vh" width={eps * totalProteins} fill="#F67100"/>
+                                <rect x={eps * totalProteins} y="0" height="1vh" width={eps * totalProteins}
+                                      fill="#555555"/>
+                            </svg>
+                        </td>
+                        <td>
+                            <svg width="100%" preserveAspectRatio="none">
+                                <rect x="0" y="0" height="1vh" width={eps * totalFats} fill="#3D43F7"/>
+                                <rect x={eps * totalFats} y="0" height="1vh" width={eps * totalFats} fill="#555555"/>
+                            </svg>
+                        </td>
+                        <td>
+                            <svg width="100%" preserveAspectRatio="none" viewBox="0 0 70 20" height="20px">
+                                <rect x="0" y="0" height="1vh" width={eps * totalCarbs} fill="#00B775"/>
+                                <rect x={eps * totalCarbs} y="0" height="1vh" width={eps * totalCarbs} fill="#555555"/>
+                            </svg>
+                        </td>
+                    </tr>
                     }
-                </Row>
+                </Table>
             </Container>
         </React.Fragment>
     );

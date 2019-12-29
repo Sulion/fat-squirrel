@@ -21,14 +21,14 @@ class DishList  extends React.Component {
 
     render() {
         return (
-            <Table hover className="dish-list">
+            <Table hover className="dish-list table-fixed">
                 <thead>
                 <tr>
-                    <th>Блюдо</th>
-                    <th>Калории</th>
-                    <th>Белки</th>
-                    <th>Жиры</th>
-                    <th>Углеводы</th>
+                    <th width="44%">Блюдо</th>
+                    <th width="14%">Калории</th>
+                    <th width="14%">Белки</th>
+                    <th width="14%">Жиры</th>
+                    <th width="14%">Углеводы</th>
                 </tr>
                 </thead>
                 <tbody>
