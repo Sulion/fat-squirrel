@@ -21,7 +21,7 @@ function Summary(data) {
                         <th width="14%">{sumBy(data.data, 'carbs')}</th>
                     </tr>
 
-                    {totalProteins + totalFats + totalCarbs > 0 &&
+                    {false &&
                     <tr>
                         <td>&nbsp;</td>
                         <td>

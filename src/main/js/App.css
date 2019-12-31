@@ -78,9 +78,14 @@ input.form-control {
   border-radius: 0 !important;
   border-color: #777777;
 }
+
 .table thead th {
   border-top: none;
   font-weight: 900;
+}
+
+tr.greyed-rows {
+  background-color: rgba(61, 67, 247, 0.1);
 }
 
 .summary {
@@ -105,6 +110,10 @@ input.form-control {
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #F7F7F7;
+}
+
+.table-hover tbody tr.greyed-rows:hover td {
+  background-color: #777777;
 }
 
 .dish-list {
