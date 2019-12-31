@@ -113,7 +113,7 @@ tr.greyed-rows {
 }
 
 .table-hover tbody tr.greyed-rows:hover td {
-  background-color: #777777;
+  background-color: rgba(61, 67, 247, 0.2);
 }
 
 .dish-list {
