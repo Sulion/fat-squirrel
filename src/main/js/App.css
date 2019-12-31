@@ -89,6 +89,7 @@ tr.greyed-rows {
 }
 
 .summary {
+  padding-left: 0vw;
   margin-top: 10vh;
   font-size: 12pt;
   font-weight: 900;
@@ -118,4 +119,10 @@ tr.greyed-rows {
 
 .dish-list {
   margin-top: 12vh;
+}
+
+.stats {
+  display: flex;
+  align-items: flex-start;
+  height: .7vh;
 }

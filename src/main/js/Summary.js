@@ -3,12 +3,17 @@ import Container from "react-bootstrap/Container";
 import sumBy from "lodash/sumBy"
 import Table from "react-bootstrap/Table";
 
+const PROTEINS = 70.0;
+const CARBS = 300.0;
+const FATS = 90.0;
 
 function Summary(data) {
     const totalProteins = sumBy(data.data, 'proteins');
     const totalFats = sumBy(data.data, 'fats');
     const totalCarbs = sumBy(data.data, 'carbs');
-    const eps = (window.innerWidth / 10.0 * 3.5) / (totalProteins + totalFats + totalCarbs);
+    const proteinPercentage = 100 * totalProteins / PROTEINS;
+    const fatPercentage = 100 * totalFats / FATS;
+    const carbsPercentage = 100 * totalCarbs / CARBS;
 
     return (
         <React.Fragment>
@@ -20,31 +25,51 @@ function Summary(data) {
                         <th width="14%">{sumBy(data.data, 'fats')}</th>
                         <th width="14%">{sumBy(data.data, 'carbs')}</th>
                     </tr>
-
-                    {false &&
                     <tr>
                         <td>&nbsp;</td>
                         <td>
-                            <svg width="100%" preserveAspectRatio="none">
-                                <rect x="0" y="0" height="1vh" width={eps * totalProteins} fill="#F67100"/>
-                                <rect x={eps * totalProteins} y="0" height="1vh" width={eps * totalProteins}
-                                      fill="#555555"/>
-                            </svg>
+                            <div className="stats">
+                                <div style={{
+                                    height: "100%",
+                                    width: proteinPercentage + "%",
+                                    "background-color": "#F67100"
+                                }}>&nbsp;</div>
+                                <div style={{
+                                    height: "100%",
+                                    width: (100 - proteinPercentage) + "%",
+                                    "background-color": "#CFCFCF"
+                                }}>&nbsp;</div>
+                            </div>
                         </td>
                         <td>
-                            <svg width="100%" preserveAspectRatio="none">
-                                <rect x="0" y="0" height="1vh" width={eps * totalFats} fill="#3D43F7"/>
-                                <rect x={eps * totalFats} y="0" height="1vh" width={eps * totalFats} fill="#555555"/>
-                            </svg>
+                            <div className="stats">
+                                <div style={{
+                                    height: "100%",
+                                    width: fatPercentage + "%",
+                                    "background-color": "#3D43F7"
+                                }}>&nbsp;</div>
+                                <div style={{
+                                    height: "100%",
+                                    width: (100 - fatPercentage) + "%",
+                                    "background-color": "#CFCFCF"
+                                }}>&nbsp;</div>
+                            </div>
                         </td>
                         <td>
-                            <svg width="100%" preserveAspectRatio="none" viewBox="0 0 70 20" height="20px">
-                                <rect x="0" y="0" height="1vh" width={eps * totalCarbs} fill="#00B775"/>
-                                <rect x={eps * totalCarbs} y="0" height="1vh" width={eps * totalCarbs} fill="#555555"/>
-                            </svg>
+                            <div className="stats">
+                                <div style={{
+                                    height: "100%",
+                                    width: carbsPercentage + "%",
+                                    "background-color": "#00B775"
+                                }}>&nbsp;</div>
+                                <div style={{
+                                    height: "100%",
+                                    width: 100 - carbsPercentage + "%",
+                                    "background-color": "#CFCFCF"
+                                }}>&nbsp;</div>
+                            </div>
                         </td>
                     </tr>
-                    }
                 </Table>
             </Container>
         </React.Fragment>
