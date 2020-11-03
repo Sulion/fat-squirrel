@@ -7,4 +7,15 @@ module.exports = {
         paths.appBuild = path.resolve(__dirname, 'build/resources/main/frontend');
         return paths;
     },
+    webpack: function (config, env) {
+        config.module.rules.push(
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader',
+                }
+            }
+        )
+        return config;
+    }
 }

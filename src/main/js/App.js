@@ -5,6 +5,7 @@ import PlateNavbar from "./PlateNavbar";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Footer from './Footer'
 import './App.css'
 import axios from "axios";
 
@@ -34,6 +35,11 @@ function App() {
                 <Row className="justify-content-md-center col-sm-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
                     <Col>
                         <DishList data={dishes}/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Footer/>
                     </Col>
                 </Row>
             </Container>
