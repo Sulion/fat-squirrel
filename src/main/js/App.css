@@ -130,10 +130,9 @@ tr.greyed-rows {
 
 .footer {  
    position:fixed;
-   left:0px;
+   left:1vw;
    bottom:0px;
    height:30px;
    width:100%;
-   background:#999;
-  font-size: 16pt;
+   font-size: 10pt;
 }
