@@ -127,3 +127,12 @@ tr.greyed-rows {
   align-items: flex-start;
   height: .7vh;
 }
+
+.footer {  
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
