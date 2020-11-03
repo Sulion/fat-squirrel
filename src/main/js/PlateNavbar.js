@@ -9,7 +9,7 @@ class PlateNavbar extends Component {
         return (
             <Navbar bg="white" expand="lg" collapseOnSelect sticky={'top'} className="ribbon">
                 <Navbar.Brand>
-                    <img src={logo} className="App-logo-img"/>
+                    <div className="logo">ontheplate</div>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav" className="mr-auto">
