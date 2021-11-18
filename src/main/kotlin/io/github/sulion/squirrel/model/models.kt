@@ -15,3 +15,13 @@ data class Dish(
     val proteins: Double,
     val energy: Int
 )
+
+data class UIDish(
+    val id: Int,
+    val venue: String,
+    val name: String,
+    val carbs: Double,
+    val fats: Double,
+    val proteins: Double,
+    val energy: Int
+)

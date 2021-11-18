@@ -10,7 +10,7 @@ plugins {
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.noarg") version kotlinVersion
     id("com.github.node-gradle.node") version "2.2.0"
-    id("com.github.johnrengelman.shadow") version "5.1.0"
+    id("com.github.johnrengelman.shadow") version "7.1.0"
 }
 
 group = "io.github.sulion"
@@ -26,7 +26,7 @@ noArg {
 
 node {
     version = "16.13.0"
-    npmVersion = "6.12.0"
+    npmVersion = "8.1.3"
     download = true
 }
 
@@ -41,7 +41,7 @@ dependencies {
     implementation(ktor("server-netty"))
     implementation(ktor("jackson"))
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
-    implementation("org.apache.commons:commons-lang3:12.0")
+    implementation("org.apache.commons:commons-lang3:3.12.0")
     implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
     implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
@@ -54,6 +54,13 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "16"
+}
+
+
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of("16"))
+    }
 }
 
 tasks.withType<Jar> {

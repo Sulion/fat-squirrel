@@ -12,10 +12,6 @@ class DishList extends React.Component {
         this.state = {};
     }
 
-    transformId(data) {
-        return map(data, dish => Object.assign({}, dish, {id: dish.id.timestamp + dish.id.counter * 97}));
-    }
-
     toggleDish(dish) {
         let chosenDishes = [];
         if (this.state.chosen) {
@@ -60,7 +56,7 @@ class DishList extends React.Component {
                     </thead>
                     <tbody>
                     {this.renderData(this.state.chosen, "greyed-rows")}
-                    {this.renderData(this.transformId(this.props.data), "")}
+                    {this.renderData(this.props.data, "")}
                     </tbody>
                 </Table>
                 <Summary data={this.state.chosen}/>
