@@ -6,9 +6,9 @@ repositories {
 
 plugins {
     application
-    val kotlinVersion = "1.3.60"
+    val kotlinVersion = "1.5.31"
     kotlin("jvm") version kotlinVersion
-    kotlin("plugin.noarg") version "1.3.60"
+    kotlin("plugin.noarg") version kotlinVersion
     id("com.github.node-gradle.node") version "2.2.0"
     id("com.github.johnrengelman.shadow") version "5.1.0"
 }
@@ -17,7 +17,7 @@ group = "io.github.sulion"
 version = "0.0.1-SNAPSHOT"
 
 application {
-    mainClassName = "io.ktor.server.netty.EngineMain"
+    this.mainClass.set("io.ktor.server.netty.EngineMain")
 }
 
 noArg {
@@ -25,37 +25,35 @@ noArg {
 }
 
 node {
-    version = "12.13.0"
+    version = "16.13.0"
     npmVersion = "6.12.0"
     download = true
 }
 
 dependencies {
-    val ktorVersion = "1.2.2"
-    val logbackVersion = "1.2.1"
-    val jacksonVersion = "2.9.8"
+    val ktorVersion = "1.6.5"
+    val logbackVersion = "1.2.7"
+    val jacksonVersion = "2.13.0"
     fun ktor(module: String) = "io.ktor:ktor-$module:$ktorVersion"
     fun ktor() = "io.ktor:ktor:$ktorVersion"
-    compile("org.codehaus.groovy:groovy-all:2.3.11")
     implementation(kotlin("stdlib"))
-    compile(ktor())
-    compile(ktor("server-netty"))
-    compile("org.telegram:telegrambots:4.3.1")
+    implementation(ktor())
+    implementation(ktor("server-netty"))
     implementation(ktor("jackson"))
-    compile("ch.qos.logback:logback-classic:$logbackVersion")
-    compile("org.apache.commons:commons-lang3:3.9")
-    compile("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
-    compile("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
-    compile("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
-    compile("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
-    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
-    compile("org.mongodb:mongodb-driver-sync:3.11.2")
-    compile("org.codehaus.groovy:groovy-all:2.5.8")
-    testCompile("org.spockframework:spock-core:1.2-groovy-2.5")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("org.apache.commons:commons-lang3:12.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
+    implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
+    implementation("org.mongodb:mongodb-driver-sync:4.3.4")
+    implementation("org.codehaus.groovy:groovy-all:3.0.9")
+    testImplementation("org.spockframework:spock-core:2.0-groovy-3.0")
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "16"
 }
 
 tasks.withType<Jar> {
@@ -63,7 +61,7 @@ tasks.withType<Jar> {
     manifest {
         attributes(
             mapOf(
-                "Main-Class" to application.mainClassName
+                "Main-Class" to application.mainClass
             )
         )
     }
