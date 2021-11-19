@@ -19,12 +19,15 @@ function Summary(data) {
         <React.Fragment>
             <Container className="summary">
                 <Table className="table-fixed">
+                    <thead>
                     <tr>
-                        <th width="58%">В тарелке</th>
-                        <th width="14%">{sumBy(data.data, 'proteins')}</th>
-                        <th width="14%">{sumBy(data.data, 'fats')}</th>
-                        <th width="14%">{sumBy(data.data, 'carbs')}</th>
+                        <td width="58%">В тарелке</td>
+                        <td width="14%">{sumBy(data.data, 'proteins')}</td>
+                        <td width="14%">{sumBy(data.data, 'fats')}</td>
+                        <td width="14%">{sumBy(data.data, 'carbs')}</td>
                     </tr>
+                    </thead>
+                    <tbody>
                     <tr>
                         <td>&nbsp;</td>
                         <td>
@@ -32,12 +35,12 @@ function Summary(data) {
                                 <div style={{
                                     height: "100%",
                                     width: proteinPercentage + "%",
-                                    "background-color": "#F67100"
+                                    backgroundColor: "#F67100"
                                 }}>&nbsp;</div>
                                 <div style={{
                                     height: "100%",
                                     width: (100 - proteinPercentage) + "%",
-                                    "background-color": "#CFCFCF"
+                                    backgroundColor: "#CFCFCF"
                                 }}>&nbsp;</div>
                             </div>
                         </td>
@@ -46,12 +49,12 @@ function Summary(data) {
                                 <div style={{
                                     height: "100%",
                                     width: fatPercentage + "%",
-                                    "background-color": "#3D43F7"
+                                    backgroundColor: "#3D43F7"
                                 }}>&nbsp;</div>
                                 <div style={{
                                     height: "100%",
                                     width: (100 - fatPercentage) + "%",
-                                    "background-color": "#CFCFCF"
+                                    backgroundColor: "#CFCFCF"
                                 }}>&nbsp;</div>
                             </div>
                         </td>
@@ -60,16 +63,17 @@ function Summary(data) {
                                 <div style={{
                                     height: "100%",
                                     width: carbsPercentage + "%",
-                                    "background-color": "#00B775"
+                                    backgroundColor: "#00B775"
                                 }}>&nbsp;</div>
                                 <div style={{
                                     height: "100%",
                                     width: 100 - carbsPercentage + "%",
-                                    "background-color": "#CFCFCF"
+                                    backgroundColor: "#CFCFCF"
                                 }}>&nbsp;</div>
                             </div>
                         </td>
                     </tr>
+                    </tbody>
                 </Table>
             </Container>
         </React.Fragment>
